@@ -1,6 +1,6 @@
 # HK_Housing_Benchmark
 
-Evaluate the performance of RAG text retrieval and SQL Agents.
+Evaluate the performance of RAG text retrieval and SQL Agents, which will be used in HK Housing Agent Chatbot.
 
 # Components of framework:
 
