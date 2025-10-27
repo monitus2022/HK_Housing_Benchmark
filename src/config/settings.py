@@ -29,9 +29,12 @@ load_environment()
 yaml_data = load_yaml_config()
 
 
+# Cloud Storage Configurations
+
 
 class CloudStorageConfig(BaseModel):
     service_type: str = "cloudflare"
+
 
 class CloudflareConfig(BaseModel):
     endpoint_url: str
@@ -39,13 +42,16 @@ class CloudflareConfig(BaseModel):
     region: str = "auto"
     datahub_folder_name: str = "data"
 
+
 class AWSConfig(BaseModel):
     bucket_name: str
     region: str = "us-east-1"
 
 
 class CloudStorageSecrets(BaseSettings):
-    account_id: Optional[str] = Field(None, alias="cloudflare_account_id")  # Only needed for Cloudflare
+    account_id: Optional[str] = Field(
+        None, alias="cloudflare_account_id"
+    )  # Only needed for Cloudflare
     access_key_id: str = Field(alias="cloud_storage_access_key_id")
     secret_access_key: str = Field(alias="cloud_storage_secret_access_key")
 
@@ -54,6 +60,9 @@ class CloudStorageSecrets(BaseSettings):
         env_file_encoding="utf-8",
         extra="ignore",
     )
+
+
+# Local Storage Configurations
 
 
 class BaseStorageConfig(BaseModel):
@@ -74,11 +83,23 @@ class StorageConfig(BaseModel):
     rag: RAGStorageConfig
 
 
+# LLM Configurations
+
+
+class LLMOllamaConfig(BaseModel):
+    default_model: str = "llama3.1:latest"
+
+
+class LLMConfig(BaseModel):
+    ollama: LLMOllamaConfig
+
+
 class Settings(BaseSettings):
     storage: StorageConfig
     cloud_storage: CloudStorageConfig
     cloudflare: CloudflareConfig
     aws: AWSConfig
+    llm: LLMConfig
 
     model_config = SettingsConfigDict(
         extra="allow",

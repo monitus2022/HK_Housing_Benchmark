@@ -1,0 +1,16 @@
+{
+  "model": "qwen3:1.7b",
+  "created_at": "2025-10-26T11:02:09.93918522Z",
+  "message": {
+    "role": "assistant",
+    "content": "<think>\nOkay, the user said, \"Hello, how are you?\" So I need to respond politely. Let me think. The assistant should greet back and offer help. Maybe say something like, \"Hello! I'm doing well, thanks for asking. How can I assist you today?\" That's friendly and opens the door for more conversation. I should make sure the tone is welcoming and helpful.\n</think>\n\nHello! I'm doing well, thanks for asking. How can I assist you today?"
+  },
+  "done_reason": "stop",
+  "done": true,
+  "total_duration": 2613452532,
+  "load_duration": 1572872362,
+  "prompt_eval_count": 25,
+  "prompt_eval_duration": 147877785,
+  "eval_count": 102,
+  "eval_duration": 888976957
+}
